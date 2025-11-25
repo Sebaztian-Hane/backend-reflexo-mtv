@@ -19,6 +19,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings  # Importa settings
+from django.conf.urls.static import static  # Importa static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,5 +44,15 @@ urlpatterns = [
         
         # ⚙️ Módulo 6: Historiales y Configuraciones
         path('configurations/', include('histories_configurations.urls')),
+        
+        # Modulo 7: Ubicaciones Geograficas
+        path('locations/', include('ubi_geo.urls')),
+
+        # 📊 Módulo 8: Reportes de Empresas
+        path('company/', include('company_reports.urls')),
+
     ])),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

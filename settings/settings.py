@@ -40,12 +40,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'guardian',
-    'appointments_status',
-    'architect',
+    'appointments_status.apps.AppointmentsStatusConfig',
+    'architect.apps.ArchitectConfig',
     'histories_configurations',
-    'patients_diagnoses',
-    'therapists',
+    'patients_diagnoses.apps.PatientsDiagnosesConfig',
+    'therapists.apps.TherapistsConfig',
+    'ubi_geo.apps.UbiGeoConfig',
     'users_profiles',
+    'company_reports',
 ]
 
 # Modelo de usuario personalizado
@@ -133,6 +135,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Archivos multimedia (subidos por el usuario)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
